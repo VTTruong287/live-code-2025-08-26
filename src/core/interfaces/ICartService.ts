@@ -1,5 +1,10 @@
+import type { CartItem } from "../models/CartItem";
+import type { InventoryItem } from "../models/InventoryItem";
+
 export interface ICartService {
-  add: (id: string, qty: number) => void;
-  update: (id: string, qty: number) => void;
-  delete: (id: string) => void;
+  load(): CartItem[];
+  save(cart: CartItem[]): void;
+  addItem(cart: CartItem[], product: InventoryItem, qty?: number): CartItem[];
+  updateItem(cart: CartItem[], id: string, qty: number): CartItem[];
+  removeItem(cart: CartItem[], id: string): CartItem[];
 }

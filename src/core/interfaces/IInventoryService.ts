@@ -1,5 +1,7 @@
-import type { Inventory } from "../models/InventoryItem";
+import type { InventoryItem } from "../models/InventoryItem";
 
 export interface IInventoryService {
-  getAll: () => Inventory[];
+  getAll(): Promise<InventoryItem[]>;
+  getItems(): InventoryItem[];
+  setItems(items: InventoryItem[]): void;
 }

@@ -1,4 +1,4 @@
-export type Inventory = {
+export type InventoryItem = {
   id: string;
   name: string;
   unitPrice: number;
