@@ -1,8 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import { useCartStore } from "../core/store/CartStore";
 
 export default function Header() {
-//   const cart = useStore((state) => state.cart);
-//   const totalQuantity = cart.reduce((s, i) => s + i.quantity, 0);
+  const cart = useCartStore((state) => state.cart);
+  const totalQuantity = cart.reduce((s, i) => s + i.quantity, 0);
 
   return (
     <header className="bg-green-900 shadow-sm text-white">
@@ -18,7 +19,7 @@ export default function Header() {
             Cart
           </NavLink>
           <Link to="/cart" className="relative inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-gray-100">
-            <span className="text-sm font-medium text-black">{0}</span>
+            <span className="text-sm font-medium text-black">{totalQuantity}</span>
           </Link>
         </nav>
       </div>

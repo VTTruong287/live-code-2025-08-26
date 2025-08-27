@@ -1,5 +1,7 @@
-import type { InventoryItem } from "./InventoryItem";
 
-export type CartItem = InventoryItem & {
-  selectedQuantity: number;
+export type CartItem = {
+  id: string;
+  name: string;
+  unitPrice: number;
+  quantity: number;
 };

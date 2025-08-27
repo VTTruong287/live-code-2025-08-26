@@ -1,5 +1,5 @@
 import CartItem from "../components/CartItemCard";
-import { useCartStore } from "../store/CartStore";
+import { useCartStore } from "../core/store/CartStore";
 
 export default function CartPage() {
   const cart = useCartStore((state) => state.cart);

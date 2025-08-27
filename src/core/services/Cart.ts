@@ -31,18 +31,17 @@ class CartService implements ICartService {
     // Open for extension: we keep core logic here
     const existing = cart.find((i) => i.id === product.id);
     if (existing) {
-      if(existing.selectedQuantity + qty >= product.quantity) {
+      if(existing.quantity + qty >= product.quantity) {
         alert(`Only ${product.quantity} items in stock. Please adjust your cart quantity accordingly.`);
         return cart;
       }
-      existing.selectedQuantity = Math.min(product.quantity, existing.selectedQuantity + qty);
+      existing.quantity = Math.min(product.quantity, existing.quantity + qty);
     } else {
       cart.push({
         id: product.id,
         name: product.name,
         unitPrice: product.unitPrice,
-        quantity: product.quantity,
-        selectedQuantity: Math.min(product.quantity, qty),
+        quantity: qty,
       });
     }
     return cart;
@@ -54,7 +53,7 @@ class CartService implements ICartService {
       alert("Item not found in cart");
       return cart;
     }
-    item.selectedQuantity = Math.max(0, qty);
+    item.quantity = Math.max(0, qty);
     return cart;
   }
 
